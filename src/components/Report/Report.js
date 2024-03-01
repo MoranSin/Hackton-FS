@@ -1,40 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
 import Button from "../Button/Button";
-
-const ReportStyle = styled.div`
-    border: 1px solid #E5EAEF;
-    border-radius: 25px;
-    margin: 10px;
-    display: flex;
-    flex-flow: column;
-    width: 80%;
-`;
-
-const ReportTitle = styled.h3`
-    font-size: 1.3rem;
-    margin: 22px 0 15px 0;
-    align-self: center;
-`;
-
-const ReportUl = styled.ul`
-    display: flex;
-    flex-flow: column;
-    list-style: circle inside;
-    margin-left: 36px;
-`;
-
-const ReportLi = styled.li`
-    padding: 3px;
-`;
-
-const Buttons = styled.div`
-    display: flex;
-    flex-flow: row;
-    justify-content: center;
-    margin: 15px 0 22px 0;
-`;
-
+import { ReportStyle, ReportTitle, ReportUl, ReportLi, Buttons } from "./Report.style";
 
 const Report = (props) => {
     const {
