@@ -5,7 +5,6 @@ import Navbar from "../Navbar/Navbar";
 
 const HeaderStyle = styled.header`
     display: flex;
-    height: 13vh;
     flex-flow: column;
 `;
 
@@ -14,11 +13,10 @@ const UpperHeaderStyle = styled.div`
     height: 50%;
     justify-content: left;
     position: relative;
-    margin: 2.5% 0 2% 3.5%;
+    margin: 2% 0 1.5% 2.75%;
 `;
 
 const LowerHeaderStyle = styled.div`
-    display: flex;
     width: 98%;
     justify-content: space-between;
     position: relative;
@@ -26,13 +24,10 @@ const LowerHeaderStyle = styled.div`
 `;
 
 const LogoStyle = styled.img`
-    width: 160px;
-    height: 25px;
-    // background-reapeat: no-repeat;
+    width: 150px;
+    height: 20px;
     display: block;
     position: relative;
-    // background-size: contain;
-    //   object-fit: contain;
 `;
 
 const LineStyle: any = styled.div`

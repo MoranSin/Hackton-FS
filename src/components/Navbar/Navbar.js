@@ -13,9 +13,10 @@ const NavStyle = styled.nav`
 const UlStyle = styled.ul`
     display: flex;
     justify-content: space-around;
-    flex-flow: row;
+    flex-flow: row wrap;
     align-content: center;
-    margin: 10px
+    margin: 5px;
+    width: 70%;
 `;
 const LiStyle = styled.li`
     list-style: none;
@@ -23,6 +24,8 @@ const LiStyle = styled.li`
     border-radius: 25px;
     padding: 8px 15px;
     color: #5A7490;
+    margin: 7px;
+    font-size: 1em;
 `;
 
 const Navbar = () => {
