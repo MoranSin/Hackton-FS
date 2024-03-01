@@ -17,8 +17,7 @@ const ReportButton = styled.button`
 `;
 
 const Button = (props) => {
-    const { text, onClick } = props;
-    onClick();
+    const { text } = props;
     return (
         <ReportButton>{text}</ReportButton>
     );

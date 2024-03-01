@@ -38,7 +38,7 @@ const Buttons = styled.div`
 
 const Report = (props) => {
     const {
-        reportNumber, ReportData, updateReport, deleteReport
+        reportNumber, ReportData
     } = props;
     return (
         <ReportStyle>
@@ -56,8 +56,8 @@ const Report = (props) => {
                 <ReportLi>Description of the Cause: {ReportData.damageDescription}</ReportLi>
             </ReportUl>
             <Buttons>
-                <Button text="Update Report" onClick={() => updateReport(ReportData)}></Button>
-                <Button text="Delete Report" onClick={() => deleteReport(ReportData)}></Button>
+                <Button text="Update Report"></Button>
+                <Button text="Delete Report"></Button>
             </Buttons>
         </ReportStyle>
     );

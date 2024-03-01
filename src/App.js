@@ -14,6 +14,8 @@ const Main = styled.main`
 const App = () => {
     const [reports, setReports] = useState([]);
     const [message, setMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [isUpsert, setIsUpsert] = useState(false);
 
     useEffect(() => {
         fetchReports();
@@ -22,9 +24,10 @@ const App = () => {
     const fetchReports = async () => {
         try{
             const reportsRes = await getDamageReports();
-            if(!reportsRes?.data.length === 0)
-                setMessage("Error fetching reports");
+            // if(!reportsRes?.data.length === 0)
+            //     setMessage("Error fetching reports");
             setReports(reportsRes?.data);
+            console.log(reportsRes)
         }catch (err){
             setMessage(err.message);
         }
@@ -34,7 +37,7 @@ const App = () => {
     <div className="App">
         <Header />
         <Main>
-            <Report />
+            {reports.length > 0 && <Report reportNumber={1} ReportData={reports[0]}/>}
         </Main>
     </div>
   );

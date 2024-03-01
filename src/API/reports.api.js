@@ -1,5 +1,4 @@
 import axios from 'axios';
-axios.defaults.withCredentials = true;
 
 const baseURL = "https://report-service-mh3t.onrender.com";
 

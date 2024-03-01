@@ -30,7 +30,7 @@ const LogoStyle = styled.img`
     position: relative;
 `;
 
-const LineStyle: any = styled.div`
+const LineStyle = styled.div`
     display: flex;
     fill: #E5EAEF;
     stroke: #E5EAEF;
