@@ -16,11 +16,12 @@ const ReportButton = styled.button`
     }
 `;
 
-const Button = ({text}) => {
+const Button = (props) => {
+    const { text, onClick } = props;
+    onClick();
     return (
         <ReportButton>{text}</ReportButton>
-        //         <ReportButton onClick={onClick}>{text}</ReportButton>
-    )
-}
+    );
+};
 
 export default Button;

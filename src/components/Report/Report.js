@@ -21,7 +21,7 @@ const ReportUl = styled.ul`
     display: flex;
     flex-flow: column;
     list-style: circle inside;
-    margin-left:36px;
+    margin-left: 36px;
 `;
 
 const ReportLi = styled.li`
@@ -36,25 +36,28 @@ const Buttons = styled.div`
 `;
 
 
-const Report = () => {
+const Report = (props) => {
+    const {
+        reportNumber, ReportData, updateReport, deleteReport
+    } = props;
     return (
         <ReportStyle>
-            <ReportTitle>Report Number: 06</ReportTitle>
+            <ReportTitle>Report Number: {reportNumber}</ReportTitle>
             <ReportUl>
-                <ReportLi>Reporter Name: Ruby Freeman</ReportLi>
-                <ReportLi>Contact Number: 0543555555</ReportLi>
-                <ReportLi>Email Address: ruby@gmail.com</ReportLi>
-                <ReportLi>Date and Time of the Incident: 07/10/2023</ReportLi>
-                <ReportLi>location of the Incident: Beeri, b 5</ReportLi>
-                <ReportLi>Damage Type: War Damage</ReportLi>
-                <ReportLi>Parts of the Property Affected: Car</ReportLi>
-                <ReportLi>The extent of the Damage: Sever Damage</ReportLi>
-                <ReportLi>Estimated Repair Cost: 70000</ReportLi>
-                <ReportLi>Description of the Cause: The car was set on fire</ReportLi>
+                <ReportLi>Reporter Name: {ReportData.reportName}</ReportLi>
+                <ReportLi>Contact Number: {ReportData.contactNumber}</ReportLi>
+                <ReportLi>Email Address: {ReportData.emailAddress}</ReportLi>
+                <ReportLi>Date and Time of the Incident: {ReportData.incidentLocation.city}, {ReportData.incidentLocation.street}, {ReportData.incidentLocation.buildingNumber}</ReportLi>
+                <ReportLi>location of the Incident: {ReportData.reportName}</ReportLi>
+                <ReportLi>Damage Type: {ReportData.damageType}</ReportLi>
+                <ReportLi>Parts of the Property Affected: {ReportData.effectedProperty}</ReportLi>
+                <ReportLi>The extent of the Damage: {ReportData.extentOfDamage}</ReportLi>
+                <ReportLi>Estimated Repair Cost: {ReportData.estimatedRepairCost}</ReportLi>
+                <ReportLi>Description of the Cause: {ReportData.damageDescription}</ReportLi>
             </ReportUl>
             <Buttons>
-                <Button text="Update Report" ></Button>
-                <Button text="Delete Report" ></Button>
+                <Button text="Update Report" onClick={() => updateReport(ReportData)}></Button>
+                <Button text="Delete Report" onClick={() => deleteReport(ReportData)}></Button>
             </Buttons>
         </ReportStyle>
     );

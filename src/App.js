@@ -13,11 +13,23 @@ const Main = styled.main`
 
 const App = () => {
     const [reports, setReports] = useState([]);
+    const [message, setMessage] = useState('');
+
     useEffect(() => {
-        getDamageReports().then((data) => {
-            setReports(data)
-        })
-    }, [])
+        fetchReports();
+    }, []);
+
+    const fetchReports = async () => {
+        try{
+            const reportsRes = await getDamageReports();
+            if(!reportsRes?.data.length === 0)
+                setMessage("Error fetching reports");
+            setReports(reportsRes?.data);
+        }catch (err){
+            setMessage(err.message);
+        }
+    }
+
   return (
     <div className="App">
         <Header />
