@@ -1,6 +1,16 @@
+# Frontend Crisis Management Service
+This project aims to enhance the user interface and user experience of a crisis management service using React.js. The frontend application interacts with backend services deployed on the cloud, providing functionalities for managing damage reports.
+
+## API
+The frontend interacts with the following backend API endpoints:
+
+getDamageReports: Retrieve all damage reports.
+getDamageReportById: Retrieve a damage report by its ID.
+createDamageReport: Create a new damage report.
+updateDamageReport: Update an existing damage report.
+deleteDamageReport: Delete a damage report.
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
