@@ -1,15 +1,15 @@
 import React from "react";
-import {ErrorDiv} from "./ErrorMsg.style";
+import {MsgDiv} from "./Msg.style";
 
-export const ErrorMsg = (props) => {
-    const {msg} = props;
+export const Msg = (props) => {
+    const {msg, isError} = props;
     if (msg === "" || msg === undefined || msg === null) {
         return null;
     }
 
     return (
-        <ErrorDiv>
+        <MsgDiv isError={isError}>
             <p>{msg}</p>
-        </ErrorDiv>
+        </MsgDiv>
     )
 }

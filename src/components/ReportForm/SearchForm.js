@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import Button from "../Button/Button";
-import { TextFieldStyle , FormStyled, GetByIdContainer} from './SearchForm.style';
+import { TextFieldStyle , FormStyled, FormContainer} from './SearchForm.style';
 import Report from '../Report/Report';
-import {ErrorMsg} from "../ErrorMsg/ErrorMsg";
+import {Msg} from "../Msg/Msg";
+
 const SearchForm = ({getReportByid, message, setMessage, deleteReport}) => {
     const [input, setInputData] = useState('');
     const [reportData, setReportData] = useState('');
@@ -32,20 +33,21 @@ const SearchForm = ({getReportByid, message, setMessage, deleteReport}) => {
     }
 
     return (
-        <GetByIdContainer>
+        <FormContainer>
             <FormStyled onSubmit={(e) => handleSubmit(e, input)}>
                 <TextFieldStyle
                     id={"reportId"}
                     label="Report Id"
                     multiline
+                    width={"45%"}
                     maxRows={1}
                     onChange={(e) => handleForm(e)}
                 />
                 <Button text={"Submit"} clicked={"true"}/>
             </FormStyled>
-            {message && <ErrorMsg message={message} />}
+            {message && <Msg message={message} />}
             {reportData && <Report key={reportData._id} reportNumber={1} ReportData={reportData} deleteReport={deleteReport} isSearch={"true"}  />}
-        </GetByIdContainer>
+        </FormContainer>
     )
 }
 
