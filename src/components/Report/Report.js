@@ -1,11 +1,12 @@
 import React from 'react';
 import Button from "../Button/Button";
-import { ReportStyle, ReportTitle, ReportUl, ReportLi, Buttons } from "./Report.style";
+import {Buttons, ReportLi, ReportStyle, ReportTitle, ReportUl} from "./Report.style";
 
 const Report = (props) => {
     const {
-        reportNumber, ReportData
+        reportNumber, ReportData, isUpdate, isDelete, deleteReport, isSearch
     } = props;
+
     return (
         <ReportStyle>
             <ReportTitle>Report Number: {reportNumber}</ReportTitle>
@@ -13,7 +14,8 @@ const Report = (props) => {
                 <ReportLi>Reporter Name: {ReportData.reportName}</ReportLi>
                 <ReportLi>Contact Number: {ReportData.contactNumber}</ReportLi>
                 <ReportLi>Email Address: {ReportData.emailAddress}</ReportLi>
-                <ReportLi>Date and Time of the Incident: {ReportData.incidentLocation.city}, {ReportData.incidentLocation.street}, {ReportData.incidentLocation.buildingNumber}</ReportLi>
+                <ReportLi>Date and Time of the
+                    Incident: {ReportData.incidentLocation.city}, {ReportData.incidentLocation.street}, {ReportData.incidentLocation.buildingNumber}</ReportLi>
                 <ReportLi>location of the Incident: {ReportData.reportName}</ReportLi>
                 <ReportLi>Damage Type: {ReportData.damageType}</ReportLi>
                 <ReportLi>Parts of the Property Affected: {ReportData.effectedProperty}</ReportLi>
@@ -21,10 +23,10 @@ const Report = (props) => {
                 <ReportLi>Estimated Repair Cost: {ReportData.estimatedRepairCost}</ReportLi>
                 <ReportLi>Description of the Cause: {ReportData.damageDescription}</ReportLi>
             </ReportUl>
-            <Buttons>
-                <Button text="Update Report"></Button>
-                <Button text="Delete Report"></Button>
-            </Buttons>
+            {isSearch === "false" && <Buttons>
+                <Button text="Update Report" clicked={isUpdate}></Button>
+                <Button text="Delete Report" clicked={isDelete} onClick={() => deleteReport(ReportData._id)}></Button>
+            </Buttons>}
         </ReportStyle>
     );
 };

@@ -31,9 +31,9 @@ const Navbar = ({ isGetAll, isGetById, isCreate, updateAppState}) => {
     return (
         <NavigateStyle>
             <ButtonContainer>
-                <Button text="Get All Reports" pressed={getAll} onClick={() => updateNavbarState('getall')} />
-                <Button text="Get Report By id" pressed={getById} onClick={() => updateNavbarState('getbyid')} />
-                <Button text="Create Report" pressed={create} onClick={() => updateNavbarState('create')} />
+                <Button text="Get All Reports" clicked={getAll} onClick={() => updateNavbarState('getall')} />
+                <Button text="Get Report By id" clicked={getById} onClick={() => updateNavbarState('getbyid')} />
+                <Button text="Create Report" clicked={create} onClick={() => updateNavbarState('create')} />
             </ButtonContainer>
         </NavigateStyle>
     );

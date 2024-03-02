@@ -27,6 +27,7 @@ const ReportUl = styled.ul`
     flex-flow: column;
     list-style: circle outside;
     margin-left: 45px;
+    margin-bottom: 25px;
 `;
 
 const ReportLi = styled.li`
@@ -37,7 +38,7 @@ const Buttons = styled.div`
     display: flex;
     flex-flow: row;
     justify-content: center;
-    margin: 15px 0 22px 0;
+    margin-bottom: 22px;
 `;
 
 export { ReportStyle, ReportTitle, ReportUl, ReportLi, Buttons }

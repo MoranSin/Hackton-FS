@@ -6,8 +6,8 @@ export const ReportButton = styled.button`
     padding: 8px 15px;
     margin: 7px 5%;
     font-size: 1em;
-    background-color: ${({ pressed }) => (pressed === "true" ? '#7793AE' : 'transparent')};
-    color: ${({ pressed }) => (pressed === "true" ? '#ffffff' : '#778DA3')};
+    background-color: ${({ clicked }) => (clicked === "true" ? '#7793AE' : 'transparent')};
+    color: ${({ clicked }) => (clicked === "true" ? '#ffffff' : '#778DA3')};
     transition-duration: 0.4s;
     cursor: pointer;
 
