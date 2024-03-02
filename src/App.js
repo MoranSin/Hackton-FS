@@ -4,6 +4,7 @@ import {ErrorMsg} from "./components/ErrorMsg/ErrorMsg";
 import Report from './components/Report/Report';
 import Logo from "./assets/logo.png";
 import Navbar from "./components/Navbar/Navbar";
+import CircularProgress from '@mui/material-next/CircularProgress';
 import {
     HeaderStyle,
     LineStyle,
@@ -25,16 +26,16 @@ const App = () => {
 
     useEffect(() => {
         fetchReports();
-        updateState('getall');
     }, []);
 
     const fetchReports = async () => {
         try {
+            setIsLoading(true);
             const reportsRes = await getDamageReports();
+            setIsLoading(false);
             if (!reportsRes?.data.length === 0)
                 setMessage("Error fetching reports");
             setReports(reportsRes?.data);
-            console.log(reportsRes)
         } catch (err) {
             setMessage(err.message);
         }
@@ -76,7 +77,7 @@ const App = () => {
                     </svg>
                 </LineStyle>
                 <LowerHeaderStyle>
-                    <Navbar isGetAll={isGetAll} isGetById={isGetById} isCreate={isCreate}/>
+                    <Navbar isGetAll={isGetAll} isGetById={isGetById} isCreate={isCreate} updateAppState={updateState}/>
                 </LowerHeaderStyle>
                 <LineStyle>
                     <svg width="100%" height="1vh">
@@ -86,11 +87,13 @@ const App = () => {
             </HeaderStyle>
             <MainStyle>
                 {message && <ErrorMsg msg={message}/>}
-                {isGetAll && <ReportList>
+                {isGetAll && isLoading ? <CircularProgress color="primary" />
+                     : <ReportList>
                     {reports.length > 0 && reports.map((report, index) => <Report key={report._id}
                                                                                   reportNumber={index + 1}
                                                                                   ReportData={report}/>)}
                 </ReportList>}
+
             </MainStyle>
         </div>
     );
