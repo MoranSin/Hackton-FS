@@ -7,7 +7,7 @@ import {Msg} from "../Msg/Msg";
 
 // TextFieldStyle
 const ReportForm = (props) => {
-    const {formMod, message, setMessage, createReport, setIsError, updateReprot } = props
+    const {formMod, message, setMessage, createReport, setIsError, } = props
     const [formData, setFormData] = React.useState([]);
     const [isSuccess, setIsSuccess] = React.useState(false);
 
@@ -169,7 +169,6 @@ const ReportForm = (props) => {
                     <Button text={"Submit"} clicked={false} onSumbit/>
                 </FormStyle>
             }
-
         </FormContainer>
     )
 
