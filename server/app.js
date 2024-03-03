@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'));
 
 // Routes
-app.use('/firstAid', firstAidRouter);
+app.use('/firstAids', firstAidRouter);
 app.use(errorHandeler);
 // Connection
 app.use((req, res) => {
