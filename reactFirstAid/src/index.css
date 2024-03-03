@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'K2D', sans-serif;
+    color: #26293C;
+}
+
+header,
+main,
+footer,
+nav,
+aside,
+section,
+article {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
