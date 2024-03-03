@@ -1,4 +1,4 @@
-const MongoStorage = require('../data/mongo.storage');
+const MongoStorage = require('../db/mongo.storage');
 
 const mongoStorage = new MongoStorage('firstaid');
 const findInstructions = () => mongoStorage.find({});
