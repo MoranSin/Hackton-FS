@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Button from "../Button/Button";
 import { TextFieldStyle , FormStyled, FormContainer} from './SearchForm.style';
-import Report from '../Report/Report';
+import Instraction from '../Instraction/./Instraction';
 import {Msg} from "../Msg/Msg";
 
 const SearchForm = ({getReportByid, message, setMessage, deleteReport}) => {
@@ -37,7 +37,7 @@ const SearchForm = ({getReportByid, message, setMessage, deleteReport}) => {
             <FormStyled onSubmit={(e) => handleSubmit(e, input)}>
                 <TextFieldStyle
                     id={"reportId"}
-                    label="Report Id"
+                    label="Instraction Id"
                     multiline
                     width={"45%"}
                     maxRows={1}
@@ -46,7 +46,7 @@ const SearchForm = ({getReportByid, message, setMessage, deleteReport}) => {
                 <Button text={"Submit"} clicked={"true"}/>
             </FormStyled>
             {message && <Msg message={message} />}
-            {reportData && <Report key={reportData._id} reportNumber={1} ReportData={reportData} deleteReport={deleteReport} isSearch={"true"}  />}
+            {reportData && <Instraction key={reportData._id} reportNumber={1} ReportData={reportData} deleteReport={deleteReport} isSearch={"true"}  />}
         </FormContainer>
     )
 }

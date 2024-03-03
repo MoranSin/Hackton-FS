@@ -1,15 +1,15 @@
 import React from 'react';
 import Button from "../Button/Button";
-import {Buttons, ReportLi, ReportStyle, ReportTitle, ReportUl} from "./Report.style";
+import {Buttons, ReportLi, InstractionStyle, ReportTitle, ReportUl} from "./Instraction.style";
 
-const Report = (props) => {
+const Instraction = (props) => {
     const {
         reportNumber, ReportData, isUpdate, isDelete, deleteReport, isSearch
     } = props;
 
     return (
-        <ReportStyle>
-            <ReportTitle>Report Number: {reportNumber}</ReportTitle>
+        <InstractionStyle>
+            <ReportTitle>Instraction Number: {reportNumber}</ReportTitle>
             <ReportUl>
                 <ReportLi>Reporter Name: {ReportData.reportName}</ReportLi>
                 <ReportLi>Contact Number: {ReportData.contactNumber}</ReportLi>
@@ -24,14 +24,14 @@ const Report = (props) => {
                 <ReportLi>Description of the Cause: {ReportData.damageDescription}</ReportLi>
             </ReportUl>
             {isSearch === "false" && <Buttons>
-                <Button text="Update Report" clicked={isUpdate}></Button>
-                <Button text="Delete Report" clicked={isDelete} onClick={() => deleteReport(ReportData._id)}></Button>
+                <Button text="Update Instraction" clicked={isUpdate}></Button>
+                <Button text="Delete Instraction" clicked={isDelete} onClick={() => deleteReport(ReportData._id)}></Button>
             </Buttons>}
-        </ReportStyle>
+        </InstractionStyle>
     );
 };
 
-export default Report;
+export default Instraction;
 
 
 

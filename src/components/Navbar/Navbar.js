@@ -32,8 +32,8 @@ const Navbar = ({ isGetAll, isGetById, isCreate, updateAppState}) => {
         <NavigateStyle>
             <ButtonContainer>
                 <Button text="Get All Reports" clicked={getAll} onClick={() => updateNavbarState('getall')} />
-                <Button text="Get Report By id" clicked={getById} onClick={() => updateNavbarState('getbyid')} />
-                <Button text="Create Report" clicked={create} onClick={() => updateNavbarState('create')} />
+                <Button text="Get Instraction By id" clicked={getById} onClick={() => updateNavbarState('getbyid')} />
+                <Button text="Create Instraction" clicked={create} onClick={() => updateNavbarState('create')} />
             </ButtonContainer>
         </NavigateStyle>
     );

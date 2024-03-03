@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ReportListStyle = styled.div`
+export const InstractionListStyle = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: center;

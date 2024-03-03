@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import {createDamageReport, deleteDamageReport, getDamageReportById, getDamageReports, updateDamageReport} from './API/reports.api'
+import {createDamageInstraction, deleteDamageInstraction, getDamageInstractionById, getDamageInstractions, updateDamageInstraction} from './API/instractions.api'
 import {Msg} from "./components/Msg/Msg";
 import Header from './components/Header/Header';
-import ReportList from './components/Report/ReportList';
-import SearchForm from "./components/ReportForm/SearchForm";
-import ReportFrom from "./components/ReportForm/ReportForm";
+import InstractionList from './components/Instraction/InstractionList';
+import SearchForm from "./components/InstractionForm/SearchForm";
+import InstractionFrom from "./components/InstractionForm/InstractionForm";
 import CircularProgress from '@mui/material-next/CircularProgress';
 import {MainStyle,} from "./App.style";
 
@@ -14,67 +14,67 @@ const App = () => {
     const [isCreate, setIsCreate] = useState(false);
     const [isUpdate, setIsUpdate] = useState(false);
     const [isDelete, setIsDelete] = useState(false);
-    const [reports, setReports] = useState([]);
+    const [instractions, setInstractions] = useState([]);
     const [message, setMessage] = useState('');
     const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        fetchReports();
+        fetchInstractions();
     }, []);
 
-    const fetchReports = async () => {
+    const fetchIstractions = async () => {
         try {
             setIsLoading(true);
-            const reportsRes = await getDamageReports();
+            const InstractionsRes = await getDamageInstractions();
             setIsLoading(false);
-            if (!reportsRes?.data.length === 0)
-                setMessage("Error fetching reports");
-            setReports(reportsRes?.data);
+            if (!InstractionsRes?.data.length === 0)
+                setMessage("Error fetching Instractions");
+            setInstractions(InstractionsRes?.data);
         } catch (err) {
             setMessage(err.message);
         }
     }
 
-    const fetchReportById = async (id) => {
+    const fetchInstractionById = async (id) => {
         try {
             console.log(id);
-            const reportRes = await getDamageReportById(id);
-            console.log(reportRes);
-            if (!reportRes?.data.length === 0)
-                setMessage("Error fetching reports");
-            return reportRes?.data;
+            const InstractionRes = await getDamageInstractionById(id);
+            console.log(InstractionRes);
+            if (!InstractionRes?.data.length === 0)
+                setMessage("Error fetching Instractions");
+            return InstractionRes?.data;
         } catch (err) {
             setMessage(err.message);
         }
     }
 
-    const createReport = async (report) => {
+    const createInstraction = async (Instraction) => {
         try {
-            const res = await createDamageReport(report)
-            if (!res) throw new Error("Error creating report");
+            const res = await createDamageInstraction(Instraction)
+            if (!res) throw new Error("Error creating Instraction");
             return res?.data;
         } catch (err) {
             setMessage(err.message);
         }
     }
 
-    const updateReport = async (id, report) => {
+    const updateInstraction = async (id, Instraction) => {
         try {
-            const res = await createDamageReport(report)
-            if (!res) throw new Error("Error creating report");
+            const res = await createDamageInstraction(Instraction)
+            if (!res) throw new Error("Error creating Instraction");
             return res?.data;
         } catch (err) {
             setMessage(err.message);
         }
     }
 
-    const deleteReport = async (id) => {
+    const deleteInstraction = async (id) => {
         try {
             await updateState();
             setIsLoading(true);
-            await deleteDamageReport(id);
-            await fetchReports();
+            await deleteDamageInstraction(id);
+            await fetchInstractions();
             setIsLoading(false);
             await updateState('getall');
         } catch (err) {
@@ -90,7 +90,7 @@ const App = () => {
         switch (state) {
             case 'getall':
                 setIsGetAll(true);
-                await fetchReports();
+                await fetchInstractions();
                 break;
             case 'getbyid':
                 setIsGetById(true);
@@ -114,16 +114,16 @@ const App = () => {
             <MainStyle>
                 {message && <Msg msg={message} isError={isError}/>}
                 {isGetAll && isLoading && !message ? <CircularProgress color="primary"/> : null}
-                {!isGetById && !isLoading && isGetAll && reports.length > 0 && (
-                    <ReportList reports={reports} isUpdate={isUpdate} isDelete={isDelete}
-                                deleteReport={deleteReport} isSearch={"false"}/>)}
-                {isGetById && <SearchForm getReportByid={fetchReportById} message={message} setMessage={setMessage}
-                                          deleteReport={deleteReport}/>}
+                {!isGetById && !isLoading && isGetAll && Instractions.length > 0 && (
+                    <InstractionList Instractions={Instractions} isUpdate={isUpdate} isDelete={isDelete}
+                                     deleteInstraction={deleteInstraction} isSearch={"false"}/>)}
+                {isGetById && <SearchForm getInstractionByid={fetchInstractionById} message={message} setMessage={setMessage}
+                                          deleteInstraction={deleteInstraction}/>}
                 {isCreate &&
-                    <ReportFrom formMod={"create"} message={message} setMessage={setMessage} createReport={createReport}
+                    <InstractionFrom formMod={"create"} message={message} setMessage={setMessage} createInstraction={createInstraction}
                                 setIsError={setIsError}/>}
                 {isUpdate &&
-                    <ReportFrom formMod={"update"} message={message} setMessage={setMessage} updateReprot={updateDamageReport}
+                    <InstractionFrom formMod={"update"} message={message} setMessage={setMessage} updateReprot={updateDamageInstraction}
                                 setIsError={setIsError}/>}
             </MainStyle>
         </div>

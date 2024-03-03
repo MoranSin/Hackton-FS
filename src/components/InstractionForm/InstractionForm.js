@@ -1,12 +1,12 @@
 import React from 'react'
-import {ColumnContainer, FormStyle, RowContainer, SubTitle} from './ReportForm.style'
+import {ColumnContainer, FormStyle, RowContainer, SubTitle} from './InstractionForm.style'
 import {FormContainer, TextFieldStyle} from './SearchForm.style';
-import {ReportTitle} from "../Report/Report.style";
+import {ReportTitle} from "../Instraction/Instraction.style";
 import Button from "../Button/Button";
 import {Msg} from "../Msg/Msg";
 
 // TextFieldStyle
-const ReportForm = (props) => {
+const InstractionForm = (props) => {
     const {formMod, message, setMessage, createReport, setIsError, } = props
     const [formData, setFormData] = React.useState([]);
     const [isSuccess, setIsSuccess] = React.useState(false);
@@ -48,11 +48,11 @@ const ReportForm = (props) => {
         const res = await createReport(report);
         console.log(res);
         if (res) {
-            setMessage("Report Created Successfully");
+            setMessage("Instraction Created Successfully");
             setIsSuccess(true);
             setIsError(true);
         } else {
-            setMessage("Report Creation Failed");
+            setMessage("Instraction Creation Failed");
             setIsSuccess(false)
         }
     }
@@ -174,4 +174,4 @@ const ReportForm = (props) => {
 
 }
 
-export default ReportForm;
+export default InstractionForm;

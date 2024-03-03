@@ -29,9 +29,10 @@ const LogoStyle = styled.img`
 
 const LineStyle = styled.div`
     display: flex;
-    fill: #E5EAEF;
-    stroke: #E5EAEF;
+    fill: #7e7e7e;
+    stroke: #7e7e7e;
     stroke-width: 5px;
+    opacity: 0.2;
 `;
 
 export {

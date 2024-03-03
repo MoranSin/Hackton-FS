@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ReportStyle = styled.div`
+const InstractionStyle = styled.div`
     border: 1px solid #E5EAEF;
     border-radius: 25px;
     margin: 2%;
@@ -41,4 +41,4 @@ const Buttons = styled.div`
     margin-bottom: 22px;
 `;
 
-export { ReportStyle, ReportTitle, ReportUl, ReportLi, Buttons }
+export { InstractionStyle, ReportTitle, ReportUl, ReportLi, Buttons }
