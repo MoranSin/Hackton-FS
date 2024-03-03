@@ -1,13 +1,13 @@
 import React from 'react'
 import {ColumnContainer, FormStyle, RowContainer, SubTitle} from './InstractionForm.style'
 import {FormContainer, TextFieldStyle} from './SearchForm.style';
-import {ReportTitle} from "../Instraction/Instraction.style";
+import {InstructionTitle} from "../Instruction/Instraction.style";
 import Button from "../Button/Button";
 import {Msg} from "../Msg/Msg";
 
 // TextFieldStyle
 const InstractionForm = (props) => {
-    const {formMod, message, setMessage, createReport, setIsError, } = props
+    const {formMod, message, setMessage, createInstruction, setIsError, } = props
     const [formData, setFormData] = React.useState([]);
     const [isSuccess, setIsSuccess] = React.useState(false);
 
@@ -29,8 +29,8 @@ const InstractionForm = (props) => {
             return;
         }
 
-        const report={
-            reportName: formData.reportName,
+        const instruction={
+            instructionName: formData.instructionName,
             contactNumber: formData.contactNumber,
             emailAddress: formData.emailAddress,
             incidentDate: `${formData.date} ${formData.time}`,
@@ -45,7 +45,7 @@ const InstractionForm = (props) => {
             estimatedRepairCost: formData.estimatedRepairCost,
             damageDescription: formData.damageDescription
         }
-        const res = await createReport(report);
+        const res = await createInstruction(instruction);
         console.log(res);
         if (res) {
             setMessage("Instraction Created Successfully");
@@ -60,15 +60,15 @@ const InstractionForm = (props) => {
     return (
         <FormContainer>
             {isSuccess && message && <Msg message={message}/>}
-            {formMod === "create" && <ReportTitle>Create Report</ReportTitle>}
-            {formMod === "update" && <ReportTitle>Update Report</ReportTitle>}
+            {formMod === "create" && <InstructionTitle>Create Instruction</InstructionTitle>}
+            {formMod === "update" && <InstructionTitle>Update Instruction</InstructionTitle>}
             {!isSuccess &&
                 <FormStyle onSubmit={(e) => handleSubmit(e, formData)}>
                     <ColumnContainer>
-                        <SubTitle>Reporter Info</SubTitle>
+                        <SubTitle>Instruction Info</SubTitle>
                         <TextFieldStyle
-                            id={"reportName"}
-                            label="Reporter Full Name"
+                            id={"instructionName"}
+                            label="Instructioner Full Name"
                             multiline
                             width={"100%"}
                             onChange={(e) => handleForm(e)}

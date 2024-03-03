@@ -1,10 +1,10 @@
 import React from 'react';
-import { ReportButton } from './Button.style';
+import { InstructionButton } from './Button.style';
 
 const Button = (props) => {
     const { text, clicked, onClick } = props;
     return (
-        <ReportButton clicked={clicked ? "true" : "false"} onClick={onClick}>{text}</ReportButton>
+        <InstructionButton clicked={clicked ? "true" : "false"} onClick={onClick}>{text}</InstructionButton>
     );
 };
 

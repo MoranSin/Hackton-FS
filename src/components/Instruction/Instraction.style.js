@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const InstractionStyle = styled.div`
+const InstructionStyle = styled.div`
     border: 1px solid #E5EAEF;
     border-radius: 25px;
     margin: 2%;
@@ -16,13 +16,13 @@ const InstractionStyle = styled.div`
     }
 `;
 
-const ReportTitle = styled.h3`
+const InstructionTitle = styled.h3`
     font-size: 1.3rem;
     margin: 22px 0 15px 0;
     align-self: center;
 `;
 
-const ReportUl = styled.ul`
+const InstructionUl = styled.ul`
     display: flex;
     flex-flow: column;
     list-style: circle outside;
@@ -30,7 +30,7 @@ const ReportUl = styled.ul`
     margin-bottom: 25px;
 `;
 
-const ReportLi = styled.li`
+const InstructionLi = styled.li`
     padding: 3px;
 `;
 
@@ -41,4 +41,4 @@ const Buttons = styled.div`
     margin-bottom: 22px;
 `;
 
-export { InstractionStyle, ReportTitle, ReportUl, ReportLi, Buttons }
+export { InstructionStyle, InstructionTitle, InstructionUl, InstructionLi, Buttons }

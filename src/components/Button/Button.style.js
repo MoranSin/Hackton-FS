@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ReportButton = styled.button`
+export const InstructionButton = styled.button`
     border: 1px solid #7e7e7e;
     border-radius: 25px;
     padding: 8px 15px;

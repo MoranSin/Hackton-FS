@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
-import {createDamageInstraction, deleteDamageInstraction, getDamageInstractionById, getDamageInstractions, updateDamageInstraction} from './API/instractions.api'
+import {createDamageInstraction, deleteDamageInstraction, getDamageInstractionById, getDamageInstractions, updateDamageInstraction} from './API/instructions.api'
 import {Msg} from "./components/Msg/Msg";
 import Header from './components/Header/Header';
-import InstractionList from './components/Instraction/InstractionList';
+import InstractionList from './components/Instruction/InstractionList';
 import SearchForm from "./components/InstractionForm/SearchForm";
 import InstractionFrom from "./components/InstractionForm/InstractionForm";
 import CircularProgress from '@mui/material-next/CircularProgress';

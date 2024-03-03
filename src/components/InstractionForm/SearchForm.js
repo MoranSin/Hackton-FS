@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Button from "../Button/Button";
 import { TextFieldStyle , FormStyled, FormContainer} from './SearchForm.style';
-import Instraction from '../Instraction/./Instraction';
+import Instraction from '../Instruction/./Instraction';
 import {Msg} from "../Msg/Msg";
 
 const SearchForm = ({getReportByid, message, setMessage, deleteReport}) => {
