@@ -45,30 +45,7 @@ describe('GET /firstAid', () => {
 
     // Failure 404
     it('should return 404 when no firstAids are found', async () => {
-        const mockFirstAids = [{
-            "_id": "65e49c6195f6772b0b3c431a",
-            "injuryType": "Cuts and Scrapes",
-            "description": "Cuts and scrapes are common injuries that involve damage to the skin caused by sharp objects or abrasions.",
-            "instructions": [
-                "Clean the wound with soap and water.",
-                "Apply pressure with a clean cloth to stop bleeding.",
-                "Apply an antiseptic cream or ointment.",
-                "Cover the wound with a sterile bandage or dressing.",
-                "Seek medical attention if the wound is deep or shows signs of infection."
-            ]
-        },
-            {
-                "_id": "65e49c6195f6772b0b3c431b",
-                "injuryType": "Burns",
-                "description": "Burns occur when the skin is damaged by heat, electricity, chemicals, or radiation.",
-                "instructions": [
-                    "Cool the burn with cool, running water for at least 10 minutes.",
-                    "Remove any clothing or jewelry near the burn (if it’s not stuck to the skin).",
-                    "Cover the burn with a sterile gauze bandage or clean cloth.",
-                    "Avoid applying ice, butter, or ointments to the burn.",
-                    "Seek medical attention if the burn is severe or covers a large area of the body."
-                ]
-            }];
+        const mockFirstAids = [];
         firstAidsRepository.findInstructions.mockResolvedValue(mockFirstAids);
 
         const res = await request(app).get('/firstAids');
@@ -231,18 +208,7 @@ describe('POST /firstAids', () => {
 
     // Failure 400
     it('empty request body - should return 400', async () => {
-        const mockFirstAids = {
-            "_id": "65e49c6195f6772b0b3c431a",
-            "injuryType": "Cuts and Scrapes",
-            "description": "Cuts and scrapes are common injuries that involve damage to the skin caused by sharp objects or abrasions.",
-            "instructions": [
-                "Clean the wound with soap and water.",
-                "Apply pressure with a clean cloth to stop bleeding.",
-                "Apply an antiseptic cream or ointment.",
-                "Cover the wound with a sterile bandage or dressing.",
-                "Seek medical attention if the wound is deep or shows signs of infection."
-            ]
-        };
+        const mockFirstAids = {};
         firstAidsRepository.createInstruction.mockResolvedValue(mockFirstAids);
 
         const res = await request(app).post('/firstAids').send(mockFirstAids);
@@ -318,7 +284,18 @@ describe('PUT /firstAids/:firstAidId', () => {
 
     // Success 200
     it('should return updated firstAid with specific id', async () => {
-        const mockFirstAids = {};
+        const mockFirstAids = {
+            "_id": "65e49c6195f6772b0b3c431a",
+            "injuryType": "Cuts and Scrapes",
+            "description": "Cuts and scrapes are common injuries that involve damage to the skin caused by sharp objects or abrasions.",
+            "instructions": [
+                "Clean the wound with soap and water.",
+                "Apply pressure with a clean cloth to stop bleeding.",
+                "Apply an antiseptic cream or ointment.",
+                "Cover the wound with a sterile bandage or dressing.",
+                "Seek medical attention if the wound is deep or shows signs of infection."
+            ]
+        };
 
         firstAidsRepository.updateInstruction.mockResolvedValue(mockFirstAids);
 
@@ -329,7 +306,18 @@ describe('PUT /firstAids/:firstAidId', () => {
 
     // Failure 404
     it('should return 404 if id wasnt found', async () => {
-        const mockFirstAids = {};
+        const mockFirstAids = {
+            "_id": "65e49c6195f6772b0b3c431a",
+            "injuryType": "Cuts and Scrapes",
+            "description": "Cuts and scrapes are common injuries that involve damage to the skin caused by sharp objects or abrasions.",
+            "instructions": [
+                "Clean the wound with soap and water.",
+                "Apply pressure with a clean cloth to stop bleeding.",
+                "Apply an antiseptic cream or ointment.",
+                "Cover the wound with a sterile bandage or dressing.",
+                "Seek medical attention if the wound is deep or shows signs of infection."
+            ]
+        };
 
         firstAidsRepository.updateInstruction.mockResolvedValue(null);
 
