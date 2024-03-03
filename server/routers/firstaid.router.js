@@ -3,10 +3,10 @@ const { firstAidController } = require('../controllers/firstaid.controller');
 
 const firstAidRouter = new Router();
 
-firstAidRouter.get('/', reportsController.getAllReports);
-firstAidRouter.get('/:firstAidId', reportsController.getReportById);
-firstAidRouter.post('/', reportsController.createReport);
-firstAidRouter.put('/:firstAidId', reportsController.updateReport);
-firstAidRouter.delete('/:firstAidId', reportsController.deleteReport);
+firstAidRouter.get('/', firstAidController.getAllFirstAid);
+firstAidRouter.get('/:firstAidId', firstAidController.getFirstAidById);
+firstAidRouter.post('/', firstAidController.createFirstAid);
+firstAidRouter.put('/:firstAidId', firstAidController.updateFirstAid);
+firstAidRouter.delete('/:firstAidId', firstAidController.deleteFirstAid);
 
 module.exports = { firstAidRouter };
