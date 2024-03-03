@@ -6,7 +6,7 @@ const instructionSchema = new Schema({
 
 const firstAidSchema = new Schema({
 injuryType: { type: String, required: true },
-injuryLocation: { type: String, required: true },
+description: { type: String, required: true },
     instructions:instructionSchema
 }, { collection: 'FirstAid' });
 
