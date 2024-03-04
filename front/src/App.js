@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
-import {getFirstAidInstructions, getFirstAidInstructionById, deleteFirstAidInstruction} from './API/instructions.api'
+import {getFirstAidInstructions, getFirstAidInstructionById, deleteFirstAidInstruction, createFirstAidInstruction} from './API/instructions.api'
 import {Msg} from "./components/Msg/Msg";
 import Header from './components/Header/Header';
 import InstructionList from './components/Instruction/InstructionList';
 import CircularProgress from '@mui/material-next/CircularProgress';
 import {MainStyle,} from "./App.style";
 import SearchForm from "./components/InstructionForm/SearchForm";
+import InstructionForm from "./components/InstructionForm/InstructionForm";
 
 const App = () => {
   const [isGetAll, setIsGetAll] = useState(true);
@@ -43,6 +44,16 @@ const App = () => {
       if (!instructionRes?.data.length === 0)
         setMessage("Error fetching instructions");
       return instructionRes?.data;
+    } catch (err) {
+      setMessage(err.message);
+    }
+  }
+
+  const createInstruction = async (instruction) => {
+    try {
+      const res = await createFirstAidInstruction(instruction)
+      if (!res) throw new Error("Error creating instruction");
+      return res?.data;
     } catch (err) {
       setMessage(err.message);
     }
@@ -98,6 +109,9 @@ const App = () => {
                                deleteInstruction={deleteInstruction} isSearch={"false"}/>)}
           {isGetById && <SearchForm getInstructionByid={fetchInstructionById} message={message} setMessage={setMessage}
                                     deleteInstruction={deleteInstruction}/>}
+          {isCreate &&
+              <InstructionForm formMod={"create"} message={message} setMessage={setMessage} createInstruction={createInstruction}
+                          setIsError={setIsError}/>}
         </MainStyle>
       </div>
   );
