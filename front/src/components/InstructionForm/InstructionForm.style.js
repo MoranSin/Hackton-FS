@@ -10,7 +10,7 @@ const FormStyle = styled.form`
 
 const SubTitle = styled.h5`
     font-size: 1.1rem;
-    color: #5A7490;
+    color: #4f4f4f;
     margin: 22px 0 15px 0;
     align-self: flex-start;
     font-weight: 500;

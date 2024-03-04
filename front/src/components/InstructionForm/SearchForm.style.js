@@ -4,17 +4,17 @@ import styled from 'styled-components';
 
 export const TextFieldStyle = muiStyled(TextField)(({ width  }) => ({
     '& .MuiOutlinedInput-root': {
-        color: '#26293C',
+        color: '#8e8e8e',
         borderRadius: '25px',
         '&:hover $notchedOutline': {
-            border: '1px solid #7793AE',
+            border: '1px solid #7e7e7e',
         },
     },
     '& .MuiOutlinedInput-notchedOutline': {
-        border: '1px solid #7793AE',
+        border: '1px solid #7e7e7e',
     },
     '& .MuiInputLabel-root': {
-        color: '#7793AE',
+        color: '#7e7e7e',
     },
     margin: '11.5px 0',
     width: width || '200px',}));
